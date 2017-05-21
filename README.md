@@ -1,6 +1,7 @@
 # Task Recorder
 
 Simple curses application written in python to record your work sessions.
+This is a work in progress.
 
 ## Getting Started
 
