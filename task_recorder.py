@@ -156,7 +156,7 @@ while selected_option != ord('4'):
     screen.border(0)
     screen.addstr(2, 2, "Please enter a number...")
     screen.addstr(4, 4, "1 - n e w")
-    continue_pause_view = "p a u s e" if (active_task_id > 0) else "c o n t i n u e"
+    continue_pause_view = "p a u s e" if (active_task_id >= 0) else "c o n t i n u e"
     screen.addstr(5, 4, "2 - "+continue_pause_view)
     screen.addstr(6, 4, "3 - h i s t o r y")
     screen.addstr(7, 4, "4 - e x i t ")
