@@ -12,13 +12,12 @@ chmod +x task_recorder.py
 ```
 Add to system path
 ```
-mv task_recorder.py /usr/sbin/usermaster
+mv task_recorder.py /usr/local/bin/taskrecorder
 ```
 
-
-Run the application with 
+Run the application by typing into your console
 ```
-python task_recorder.py
+taskrecorder
 ```
 
 <!--### Prerequisites-->

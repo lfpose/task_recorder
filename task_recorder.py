@@ -1,4 +1,5 @@
-#!/usr/bin/env pythonfrom os import system
+#!/usr/bin/env python
+from os import system
 import datetime
 import curses
 
