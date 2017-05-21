@@ -4,6 +4,18 @@ Simple curses application written in python to record your work sessions.
 
 ## Getting Started
 
+### Installing
+
+Give permissions: 
+```
+chmod +x task_recorder.py
+```
+Add to system path
+```
+mv task_recorder.py /usr/sbin/usermaster
+```
+
+
 Run the application with 
 ```
 python task_recorder.py
@@ -13,13 +25,6 @@ python task_recorder.py
 
 <!--?-->
 
-
-### Installing
-
-Give permissions: 
-  chmod +x task_recorder.py
-Add to system path
-  mv task_recorder.py /usr/sbin/usermaster
 
 <!--## Built With-->
 
