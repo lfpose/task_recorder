@@ -49,6 +49,13 @@ class Actions():
         tasks.append(new_task) # add new task to the master list 
         return new_task
 
+    @staticmethod
+    def set_continue(id):
+        global active_task
+        selected_task = tasks[id]
+        selected_task.setLastContinue()
+        active_task = selected_task.id
+
 class History:
     def __init__(self,action_name):
         self.action_name = action_name
@@ -57,6 +64,7 @@ class History:
 class Task:
     'Common base class for all tasks'
     comment = ''
+    last_continue = None
 
     def __init__(self, title="default_title"):
         global last_id
@@ -68,6 +76,9 @@ class Task:
         last_id+=1
         self.created_at = datetime.datetime.now()
 
+    def setLastContinue(self):
+        now = datetime.datetime.now()
+        self.last_continue = now
 
 def view_task(offset_y, offset_x, task):
     screen.addstr(offset_y,offset_x,str(task.id)+":")
@@ -108,19 +119,26 @@ while selected_option != ord('4'):
     screen.border(0)
     screen.addstr(2, 2, "Please enter a number...")
     screen.addstr(4, 4, "1 - n e w")
-    screen.addstr(5, 4, "2 - c o n t i n u e")
+    continue_pause_view = "p a u s e" if (active_task > 0) else "c o n t i n u e"
+    screen.addstr(5, 4, "2 - "+continue_pause_view)
     screen.addstr(6, 4, "3 - h i s t o r y")
     screen.addstr(7, 4, "4 - e x i t ")
 
     if (active_task >= 0):
+
         screen.addstr(10, 4, "Currently Active: ")
-        view_task(11,10,tasks[active_task])
+        view_task(11,4,tasks[active_task])
+
+        screen.addstr(10, 30, "Elapsed time: ")
+        screen.addstr(11,30,str(datetime.datetime.now()))
+
+        screen.addstr(11,60,str(tasks[active_task].last_continue))
     else:
         screen.addstr(10, 4, "No task currently active.")
     screen.refresh()
 
-    screen.addstr(12, 4, "List of tasks")
-    view_tasks(13,4)
+    screen.addstr(13, 4, "List of tasks")
+    view_tasks(14,4)
 
     selected_option = screen.getch()
 
@@ -140,12 +158,10 @@ while selected_option != ord('4'):
         screen.addstr(5, 25, "             >_ ")
         screen.refresh()
         input = screen.getstr(5, 40, 60)
-        try:
-            selected_task = tasks[int(input)]
-            active_task = selected_task.id
-            Actions.set_continue(id)
-        except:
-            pass
+        # try:
+        Actions.set_continue(int(input))
+        # except:
+            # pass
     if selected_option == ord('3'):
         view_history_index();
 
