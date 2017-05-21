@@ -1,5 +1,10 @@
-# pause
-# read me
-# add comment
-# edit task
+# data storage
+# view task
+	# edit task
+	# add comment
+# refresh time while getch on menu
+# better ui
+# refactor
+
+
 

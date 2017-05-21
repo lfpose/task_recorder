@@ -4,16 +4,15 @@ Simple curses application written in python to record your work sessions.
 
 ## Getting Started
 
-<!--These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.-->
-?
+Run the application with 
+```
+python task_recorder.py
+```
 
 <!--### Prerequisites-->
 
 <!--?-->
 
-```
-Give examples
-```
 
 ### Installing
 
